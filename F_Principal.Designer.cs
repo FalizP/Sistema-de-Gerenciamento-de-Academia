@@ -1,6 +1,6 @@
 ﻿namespace Academia
 {
-    partial class Form1
+    partial class F_Principal
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -136,7 +136,7 @@
             // novoAlunoToolStripMenuItem
             // 
             this.novoAlunoToolStripMenuItem.Name = "novoAlunoToolStripMenuItem";
-            this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.novoAlunoToolStripMenuItem.Text = "Novo Aluno";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.NovoAlunoToolStripMenuItem_Click);
             // 
@@ -158,14 +158,14 @@
             // NovoUsuarioToolStripMenuItem
             // 
             this.NovoUsuarioToolStripMenuItem.Name = "NovoUsuarioToolStripMenuItem";
-            this.NovoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.NovoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.NovoUsuarioToolStripMenuItem.Text = "Novo Usuário";
             this.NovoUsuarioToolStripMenuItem.Click += new System.EventHandler(this.NovoUsuarioToolStripMenuItem_Click);
             // 
             // gestãoDeUsuáriosToolStripMenuItem
             // 
             this.gestãoDeUsuáriosToolStripMenuItem.Name = "gestãoDeUsuáriosToolStripMenuItem";
-            this.gestãoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestãoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.gestãoDeUsuáriosToolStripMenuItem.Text = "Gestão de Usuários";
             this.gestãoDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.GestãoDeUsuáriosToolStripMenuItem_Click);
             // 
@@ -217,7 +217,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Academia - v1.0";
+            this.Text = "Academia";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ledLogado)).EndInit();

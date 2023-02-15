@@ -58,6 +58,7 @@
             this.Tb_username.Size = new System.Drawing.Size(190, 20);
             this.Tb_username.TabIndex = 1;
             this.toolTip1.SetToolTip(this.Tb_username, "Insira seu nome de usuário.");
+            this.Tb_username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_username_KeyDown);
             // 
             // Lb_senha
             // 
@@ -80,6 +81,7 @@
             this.Tb_senha.TabIndex = 2;
             this.toolTip1.SetToolTip(this.Tb_senha, "Insira sua senha.");
             this.Tb_senha.UseSystemPasswordChar = true;
+            this.Tb_senha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_senha_KeyDown);
             // 
             // Btn_logar
             // 

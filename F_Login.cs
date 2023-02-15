@@ -6,15 +6,17 @@ namespace Academia
 {
     public partial class F_Login : Form
     {
-        readonly Form1 form1;
+        readonly F_Principal f_Principal;
         DataTable dataTable = new DataTable();
-        public F_Login(Form1 f)
+
+        public F_Login(F_Principal form)
         {
             InitializeComponent();
-            this.form1 = f;
+            this.f_Principal = form;
+
+            f_Principal.Text = $"Academia - V{Globais.vesao}";
             Tb_username.Text = "ad";
             Tb_senha.Text = "ad1";
-
         }
 
         private void Btn_logar_Click(object sender, EventArgs e)
@@ -48,29 +50,28 @@ namespace Academia
                 return;
             }
 
-            string sql = $"SELECT * FROM tb_usuarios WHERE T_USERNAME = '{username}' AND T_SENHA = '{senha}'";
+            string sql = $"SELECT * FROM {Globais.nomeTabelaUsuarios} WHERE T_USERNAME = '{username}' AND T_SENHA = '{senha}'";
             dataTable = Banco.Consulta(sql);
 
             if (dataTable.Rows.Count == 1)
             {
-                form1.Lb_acesso.Text = dataTable.Rows[0].Field<Int64>("N_NIVEL").ToString();
-                form1.Lb_nomeUsuario.Text = dataTable.Rows[0].Field<string>("T_NOME");
-                form1.pb_ledLogado.Image = Properties.Resources.led_verde;
+                f_Principal.Lb_acesso.Text = dataTable.Rows[0].Field<Int64>($"{Globais.Db_nivel}").ToString();
+                f_Principal.Lb_nomeUsuario.Text = dataTable.Rows[0].Field<string>($"{Globais.Db_Nome}");
+                f_Principal.pb_ledLogado.Image = Properties.Resources.led_verde;
                 Globais.isLogado = true;
-                Globais.nivel = int.Parse(dataTable.Rows[0].Field<Int64>("N_NIVEL").ToString());
+                Globais.nivel = int.Parse(dataTable.Rows[0].Field<Int64>($"{Globais.Db_nivel}").ToString());
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Usuário não encontrado");
             }
-
         }
 
         private void Btn_logar_MouseHover(object sender, EventArgs e)
         {
             Btn_logar.Cursor = Cursors.No;
-            if ((Tb_username.Text == "" && Tb_senha.Text == ""))
+            if (Tb_username.Text == "" && Tb_senha.Text == "")
             {
                 toolTip1.Show("Preencha todos os campos!", Btn_logar);
             }
@@ -107,15 +108,30 @@ namespace Academia
             Tb_username.Focus();
         }
 
+        private void Tb_username_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(Tb_username.Text == "" && Tb_senha.Text == "") && (e.KeyCode == Keys.Enter))
+            {
+                Btn_logar_Click(sender, e);
+            }
+        }
+
         private void Lb_senha_Click(object sender, EventArgs e)
         {
             Tb_senha.Focus();
+        }
+
+        private void Tb_senha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(Tb_username.Text == "" && Tb_senha.Text == "") && (e.KeyCode == Keys.Enter))
+            {
+                Btn_logar_Click(sender, e);
+            }
         }
 
         private void MostrarSenha_CheckedChanged(object sender, EventArgs e)
         {
             Tb_senha.UseSystemPasswordChar = Tb_senha.UseSystemPasswordChar == false;
         }
-
     }
 }

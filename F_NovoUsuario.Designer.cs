@@ -42,8 +42,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Btn_Fechar = new System.Windows.Forms.Button();
             this.Btn_Cancelar = new System.Windows.Forms.Button();
-            this.Btn_Salvar = new System.Windows.Forms.Button();
             this.Btn_Novo = new System.Windows.Forms.Button();
+            this.Cb_MostarSenha = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.N_Nivel)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -161,7 +161,6 @@
             // 
             this.panel1.Controls.Add(this.Btn_Fechar);
             this.panel1.Controls.Add(this.Btn_Cancelar);
-            this.panel1.Controls.Add(this.Btn_Salvar);
             this.panel1.Controls.Add(this.Btn_Novo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 212);
@@ -183,23 +182,13 @@
             // Btn_Cancelar
             // 
             this.Btn_Cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Cancelar.Location = new System.Drawing.Point(174, 3);
+            this.Btn_Cancelar.Location = new System.Drawing.Point(93, 3);
             this.Btn_Cancelar.Name = "Btn_Cancelar";
             this.Btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Cancelar.TabIndex = 7;
             this.Btn_Cancelar.Text = "Cancelar";
             this.Btn_Cancelar.UseVisualStyleBackColor = true;
-            // 
-            // Btn_Salvar
-            // 
-            this.Btn_Salvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Salvar.Location = new System.Drawing.Point(93, 3);
-            this.Btn_Salvar.Name = "Btn_Salvar";
-            this.Btn_Salvar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Salvar.TabIndex = 6;
-            this.Btn_Salvar.Text = "Salva";
-            this.Btn_Salvar.UseVisualStyleBackColor = true;
-            this.Btn_Salvar.Click += new System.EventHandler(this.Btn_Salvar_Click);
+            this.Btn_Cancelar.Click += new System.EventHandler(this.Btn_Cancelar_Click);
             // 
             // Btn_Novo
             // 
@@ -210,12 +199,28 @@
             this.Btn_Novo.TabIndex = 9;
             this.Btn_Novo.Text = "Novo";
             this.Btn_Novo.UseVisualStyleBackColor = true;
+            this.Btn_Novo.Click += new System.EventHandler(this.Btn_Novo_Click);
+            // 
+            // Cb_MostarSenha
+            // 
+            this.Cb_MostarSenha.AutoSize = true;
+            this.Cb_MostarSenha.Checked = true;
+            this.Cb_MostarSenha.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Cb_MostarSenha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cb_MostarSenha.Location = new System.Drawing.Point(477, 74);
+            this.Cb_MostarSenha.Name = "Cb_MostarSenha";
+            this.Cb_MostarSenha.Size = new System.Drawing.Size(95, 17);
+            this.Cb_MostarSenha.TabIndex = 6;
+            this.Cb_MostarSenha.Text = "Mostrar Senha";
+            this.Cb_MostarSenha.UseVisualStyleBackColor = true;
+            this.Cb_MostarSenha.CheckedChanged += new System.EventHandler(this.Cb_MostarSenha_CheckedChanged);
             // 
             // F_NovoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 247);
+            this.Controls.Add(this.Cb_MostarSenha);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Lb_InfoStatus);
             this.Controls.Add(this.N_Nivel);
@@ -257,7 +262,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Btn_Fechar;
         private System.Windows.Forms.Button Btn_Cancelar;
-        private System.Windows.Forms.Button Btn_Salvar;
         private System.Windows.Forms.Button Btn_Novo;
+        private System.Windows.Forms.CheckBox Cb_MostarSenha;
     }
 }

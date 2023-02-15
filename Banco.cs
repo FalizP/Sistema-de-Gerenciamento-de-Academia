@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace Academia
 {
@@ -12,7 +13,7 @@ namespace Academia
         {
             conexao = new SQLiteConnection($@"Data Source = {Globais.caminhoBancoDeDados}");
             conexao.Open();
-            
+
             return conexao;
         }
 
@@ -23,8 +24,7 @@ namespace Academia
             {
                 using (var cmd = ConexaoBanco().CreateCommand())
                 {
-                    string nomeTabela = "tb_usuarios";
-                    cmd.CommandText = $"SELECT * FROM {nomeTabela}";
+                    cmd.CommandText = $"SELECT * FROM {Globais.nomeTabelaUsuarios}";
                     SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(cmd.CommandText, ConexaoBanco());
                     dataAdapter.Fill(dataTable);
                     return dataTable;
@@ -67,33 +67,61 @@ namespace Academia
         #region Form F_NovoUsuario
         public static void NovoUsuario(Usuario usuario)
         {
+            if (IsExisteUsuario(usuario))
+            {
+                MessageBox.Show("Username já existe");
+                return;
+            }
 
+            try
+            {
+                var cmd = ConexaoBanco().CreateCommand();
+                cmd.CommandText = $@"
+                    INSERT INTO {Globais.nomeTabelaUsuarios} (
+                        {Globais.Db_Nome}, {Globais.Db_Username}, {Globais.Db_Senha}, {Globais.Db_status},{Globais.Db_nivel}
+                    )
+                    VALUES (
+                        @nome, @username, @senha, @status, @nivel
+                    )";
+                cmd.Parameters.AddWithValue("@nome", usuario.nome);
+                cmd.Parameters.AddWithValue("@username", usuario.username);
+                cmd.Parameters.AddWithValue("@senha", usuario.senha);
+                cmd.Parameters.AddWithValue("@status", usuario.status);
+                cmd.Parameters.AddWithValue("@nivel", usuario.nivel);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Novo Usuário Cadastrado!");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao gravar novo usuário");
+            }
+            finally
+            {
+                ConexaoBanco().Close();
+            }
         }
         #endregion Form F_NovoUsuario
 
 
-
-
         #region Rotinas Gerais
-        public static bool existeUsuario(Usuario usuario)
+        public static bool IsExisteUsuario(Usuario usuario)
         {
-            bool isUsuarioExistente;
-            string sql = $"SELECT {Globais.Db_Username} FROM {Globais.caminhoBancoDeDados} ";
+            string sql = $"SELECT {Globais.Db_Username} FROM {Globais.nomeTabelaUsuarios} WHERE {Globais.Db_Username} = '{usuario.username}'";
 
-
-            SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter();
-            DataTable dataTable = new DataTable();
+            SQLiteDataAdapter dataAdapter = null;
 
             var cmd = ConexaoBanco().CreateCommand();
             cmd.CommandText = sql;
 
-            return isUsuarioExistente;
+            dataAdapter = new SQLiteDataAdapter(cmd.CommandText, ConexaoBanco());
+            DataTable dataTable = new DataTable();
+
+            Console.WriteLine(dataAdapter);
+            dataAdapter.Fill(dataTable);
+
+            return dataTable.Rows.Count > 0;
         }
         #endregion Rotinas Gerais
-
-
-
-
 
     } // .banco
 } // namespace Banco
