@@ -12,22 +12,23 @@ namespace Academia
 
         private void Btn_Novo_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new Usuario();
-            usuario.nome = Tb_Nome.Text;
-            usuario.username = Tb_Username.Text;
-            usuario.senha = Tb_Senha.Text;
-            usuario.status = Cb_Status.Text;
-            usuario.nivel = Convert.ToInt32(Math.Round(N_Nivel.Value, 0));
-
+            Usuario usuario = new Usuario(
+                nome: Tb_Nome.Text,
+                username: Tb_Username.Text,
+                senha: Tb_Senha.Text,
+                status: Cb_Status.Text,
+                nivel: Convert.ToInt32(N_Nivel.Value)
+            );
             Banco.NovoUsuario(usuario);
-        }
-
-        private void Btn_Fechar_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            LimparCampos();
         }
 
         private void Btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+        private void LimparCampos()
         {
             Tb_Nome.Clear();
             Tb_Username.Clear();
@@ -40,6 +41,11 @@ namespace Academia
         private void Cb_MostarSenha_CheckedChanged(object sender, EventArgs e)
         {
             Tb_Senha.UseSystemPasswordChar = !Cb_MostarSenha.Checked;
+        }
+
+        private void Btn_Fechar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

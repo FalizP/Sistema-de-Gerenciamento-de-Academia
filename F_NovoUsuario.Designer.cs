@@ -36,7 +36,7 @@
             this.Tb_Senha = new System.Windows.Forms.TextBox();
             this.Cb_Status = new System.Windows.Forms.ComboBox();
             this.N_Nivel = new System.Windows.Forms.NumericUpDown();
-            this.Lb_Satus = new System.Windows.Forms.Label();
+            this.Lb_Status = new System.Windows.Forms.Label();
             this.Lb_Nivel = new System.Windows.Forms.Label();
             this.Lb_InfoStatus = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -130,14 +130,14 @@
             0,
             0});
             // 
-            // Lb_Satus
+            // Lb_Status
             // 
-            this.Lb_Satus.AutoSize = true;
-            this.Lb_Satus.Location = new System.Drawing.Point(22, 74);
-            this.Lb_Satus.Name = "Lb_Satus";
-            this.Lb_Satus.Size = new System.Drawing.Size(37, 13);
-            this.Lb_Satus.TabIndex = 0;
-            this.Lb_Satus.Text = "Status";
+            this.Lb_Status.AutoSize = true;
+            this.Lb_Status.Location = new System.Drawing.Point(22, 74);
+            this.Lb_Status.Name = "Lb_Status";
+            this.Lb_Status.Size = new System.Drawing.Size(37, 13);
+            this.Lb_Status.TabIndex = 0;
+            this.Lb_Status.Text = "Status";
             // 
             // Lb_Nivel
             // 
@@ -231,7 +231,7 @@
             this.Controls.Add(this.Lb_Senha);
             this.Controls.Add(this.Tb_Nome);
             this.Controls.Add(this.Lb_Nivel);
-            this.Controls.Add(this.Lb_Satus);
+            this.Controls.Add(this.Lb_Status);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -256,7 +256,7 @@
         private System.Windows.Forms.TextBox Tb_Senha;
         private System.Windows.Forms.ComboBox Cb_Status;
         private System.Windows.Forms.NumericUpDown N_Nivel;
-        private System.Windows.Forms.Label Lb_Satus;
+        private System.Windows.Forms.Label Lb_Status;
         private System.Windows.Forms.Label Lb_Nivel;
         private System.Windows.Forms.Label Lb_InfoStatus;
         private System.Windows.Forms.Panel panel1;

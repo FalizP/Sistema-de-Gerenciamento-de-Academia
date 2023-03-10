@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Academia
@@ -20,8 +21,8 @@ namespace Academia
 
         private void LogOffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Lb_acesso.Text = "0";
-            Lb_nomeUsuario.Text = "...";
+            Lb_Acesso.Text = "0";
+            Lb_Usuario.Text = "...";
             pb_ledLogado.Image = Properties.Resources.led_vermelho;
             Globais.isLogado = false;
             Globais.nivel = 0;
@@ -72,7 +73,8 @@ namespace Academia
             {
                 if (Globais.nivel >= 2)
                 {
-
+                    F_GestaoUsuarios f_GestaUsuarios = new F_GestaoUsuarios();
+                    f_GestaUsuarios.ShowDialog();
                 }
                 else
                 {
@@ -96,5 +98,6 @@ namespace Academia
                 MessageBox.Show("É necessário ter um usuário logado!");
             }
         }
+
     }
 }

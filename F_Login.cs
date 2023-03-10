@@ -15,8 +15,29 @@ namespace Academia
             this.f_Principal = form;
 
             f_Principal.Text = $"Academia - V{Globais.vesao}";
+            SetLb_Hora();
+
             Tb_username.Text = "ad";
             Tb_senha.Text = "ad1";
+
+            Banco.Consulta("select * from tb_usuarios");
+        }
+
+        private void SetLb_Hora()
+        {
+            DateTime dateTime = Globais.GetDateTimeNow();
+            if (dateTime.Hour >= 19)
+            {
+                f_Principal.Lb_Hora.Text = "Boa Noite!";
+            }
+            else if (dateTime.Hour >= 5)
+            {
+                f_Principal.Lb_Hora.Text = "Bom Dia!";
+            }
+            else if (dateTime.Hour > 12 && dateTime.Minute > 1)
+            {
+                f_Principal.Lb_Hora.Text = "Boa Tarde!";
+            }
         }
 
         private void Btn_logar_Click(object sender, EventArgs e)
@@ -50,16 +71,16 @@ namespace Academia
                 return;
             }
 
-            string sql = $"SELECT * FROM {Globais.nomeTabelaUsuarios} WHERE T_USERNAME = '{username}' AND T_SENHA = '{senha}'";
+            string sql = $"SELECT * FROM {Globais.Db_NomeTabelaUsuarios} WHERE T_USERNAME = '{username}' AND T_SENHA = '{senha}'";
             dataTable = Banco.Consulta(sql);
 
             if (dataTable.Rows.Count == 1)
             {
-                f_Principal.Lb_acesso.Text = dataTable.Rows[0].Field<Int64>($"{Globais.Db_nivel}").ToString();
-                f_Principal.Lb_nomeUsuario.Text = dataTable.Rows[0].Field<string>($"{Globais.Db_Nome}");
+                f_Principal.Lb_Acesso.Text = dataTable.Rows[0].Field<Int64>($"{Globais.Db_NivelUsuario}").ToString();
+                f_Principal.Lb_Usuario.Text = dataTable.Rows[0].Field<string>($"{Globais.Db_NomeUsuario}");
                 f_Principal.pb_ledLogado.Image = Properties.Resources.led_verde;
                 Globais.isLogado = true;
-                Globais.nivel = int.Parse(dataTable.Rows[0].Field<Int64>($"{Globais.Db_nivel}").ToString());
+                Globais.nivel = int.Parse(dataTable.Rows[0].Field<Int64>($"{Globais.Db_NivelUsuario}").ToString());
                 this.Close();
             }
             else

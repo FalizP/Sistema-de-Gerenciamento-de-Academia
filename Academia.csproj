@@ -35,6 +35,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -66,6 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco.cs" />
+    <Compile Include="F_GestaoUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_GestaoUsuarios.Designer.cs">
+      <DependentUpon>F_GestaoUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="F_Principal.cs">
       <SubType>Form</SubType>
@@ -88,6 +98,9 @@
     <Compile Include="Globais.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="F_GestaoUsuarios.resx">
+      <DependentUpon>F_GestaoUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_Principal.resx">
       <DependentUpon>F_Principal.cs</DependentUpon>
     </EmbeddedResource>

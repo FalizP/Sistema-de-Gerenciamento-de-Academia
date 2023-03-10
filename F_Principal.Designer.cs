@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Lb_nomeUsuario = new System.Windows.Forms.Label();
-            this.Lb_acesso = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Lb_Hora = new System.Windows.Forms.Label();
+            this.Lb_infoUsuario = new System.Windows.Forms.Label();
+            this.Lb_Usuario = new System.Windows.Forms.Label();
+            this.Lb_Acesso = new System.Windows.Forms.Label();
+            this.Lb_infoAcesso = new System.Windows.Forms.Label();
             this.pb_ledLogado = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.alunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,10 +55,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gray;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.Lb_nomeUsuario);
-            this.panel1.Controls.Add(this.Lb_acesso);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.Lb_Hora);
+            this.panel1.Controls.Add(this.Lb_infoUsuario);
+            this.panel1.Controls.Add(this.Lb_Usuario);
+            this.panel1.Controls.Add(this.Lb_Acesso);
+            this.panel1.Controls.Add(this.Lb_infoAcesso);
             this.panel1.Controls.Add(this.pb_ledLogado);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 376);
@@ -65,41 +67,50 @@
             this.panel1.Size = new System.Drawing.Size(584, 35);
             this.panel1.TabIndex = 0;
             // 
-            // label2
+            // Lb_Hora
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(134, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Usuário:";
+            this.Lb_Hora.AutoSize = true;
+            this.Lb_Hora.Location = new System.Drawing.Point(424, 10);
+            this.Lb_Hora.Name = "Lb_Hora";
+            this.Lb_Hora.Size = new System.Drawing.Size(43, 13);
+            this.Lb_Hora.TabIndex = 5;
+            this.Lb_Hora.Text = "Hora:  ||";
             // 
-            // Lb_nomeUsuario
+            // Lb_infoUsuario
             // 
-            this.Lb_nomeUsuario.AutoSize = true;
-            this.Lb_nomeUsuario.Location = new System.Drawing.Point(186, 10);
-            this.Lb_nomeUsuario.Name = "Lb_nomeUsuario";
-            this.Lb_nomeUsuario.Size = new System.Drawing.Size(16, 13);
-            this.Lb_nomeUsuario.TabIndex = 3;
-            this.Lb_nomeUsuario.Text = "...";
+            this.Lb_infoUsuario.AutoSize = true;
+            this.Lb_infoUsuario.Location = new System.Drawing.Point(134, 10);
+            this.Lb_infoUsuario.Name = "Lb_infoUsuario";
+            this.Lb_infoUsuario.Size = new System.Drawing.Size(46, 13);
+            this.Lb_infoUsuario.TabIndex = 4;
+            this.Lb_infoUsuario.Text = "Usuário:";
             // 
-            // Lb_acesso
+            // Lb_Usuario
             // 
-            this.Lb_acesso.AutoSize = true;
-            this.Lb_acesso.Location = new System.Drawing.Point(91, 10);
-            this.Lb_acesso.Name = "Lb_acesso";
-            this.Lb_acesso.Size = new System.Drawing.Size(13, 13);
-            this.Lb_acesso.TabIndex = 2;
-            this.Lb_acesso.Text = "0";
+            this.Lb_Usuario.AutoSize = true;
+            this.Lb_Usuario.Location = new System.Drawing.Point(186, 10);
+            this.Lb_Usuario.Name = "Lb_Usuario";
+            this.Lb_Usuario.Size = new System.Drawing.Size(16, 13);
+            this.Lb_Usuario.TabIndex = 3;
+            this.Lb_Usuario.Text = "...";
             // 
-            // label1
+            // Lb_Acesso
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Acesso:";
+            this.Lb_Acesso.AutoSize = true;
+            this.Lb_Acesso.Location = new System.Drawing.Point(91, 10);
+            this.Lb_Acesso.Name = "Lb_Acesso";
+            this.Lb_Acesso.Size = new System.Drawing.Size(13, 13);
+            this.Lb_Acesso.TabIndex = 2;
+            this.Lb_Acesso.Text = "0";
+            // 
+            // Lb_infoAcesso
+            // 
+            this.Lb_infoAcesso.AutoSize = true;
+            this.Lb_infoAcesso.Location = new System.Drawing.Point(40, 10);
+            this.Lb_infoAcesso.Name = "Lb_infoAcesso";
+            this.Lb_infoAcesso.Size = new System.Drawing.Size(45, 13);
+            this.Lb_infoAcesso.TabIndex = 1;
+            this.Lb_infoAcesso.Text = "Acesso:";
             // 
             // pb_ledLogado
             // 
@@ -207,7 +218,7 @@
             this.logOffToolStripMenuItem.Text = "LogOff";
             this.logOffToolStripMenuItem.Click += new System.EventHandler(this.LogOffToolStripMenuItem_Click);
             // 
-            // Form1
+            // F_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -215,7 +226,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "F_Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Academia";
             this.panel1.ResumeLayout(false);
@@ -231,11 +242,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lb_infoAcesso;
         public System.Windows.Forms.PictureBox pb_ledLogado;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label Lb_acesso;
-        public System.Windows.Forms.Label Lb_nomeUsuario;
+        private System.Windows.Forms.Label Lb_infoUsuario;
+        public System.Windows.Forms.Label Lb_Acesso;
+        public System.Windows.Forms.Label Lb_Usuario;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem lOGINToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOnToolStripMenuItem;
@@ -248,6 +259,7 @@
         private System.Windows.Forms.ToolStripMenuItem gestãoDeUsuáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manutençãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bancoDeDadosToolStripMenuItem;
+        public System.Windows.Forms.Label Lb_Hora;
     }
 }
 
